@@ -45,7 +45,7 @@ do
         puts-msg 'From branch:' $branch
         puts-cmd git add .
         read -p "Commit description: " desc
-        git commit -m "$desc"
+        puts-cmd git commit -m "$desc $branch"
         #puts-cmd git commit -m 'stuff and things'
         puts-cmd git push origin $branch
     else
