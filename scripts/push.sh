@@ -43,10 +43,9 @@ do
         msg=`auto commit to branch:`
 
         puts-msg 'From branch:' $branch
-        puts-cmd git add -A
-        # puts-cmd git commit -m "$msg$branch"
-        git commit -m "$msg$branch"
-        puts-cmd git push origin $branch
+        puts-cmd git add . && \
+        git commit -m "$msg$branch" && \
+        git push origin $branch
     else
         echo 'else'
     fi
