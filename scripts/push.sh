@@ -40,13 +40,11 @@ do
 
     if [ ! -d $repo ]; then
         branch=`git rev-parse --abbrev-ref HEAD`
-        msg=`auto commit to branch:`
 
         puts-msg 'From branch:' $branch
         puts-cmd git add .
-        read -p "Commit description: " desc
-        puts-cmd git commit -m "$desc $branch"
-        #puts-cmd git commit -m 'stuff and things'
+        read -p "Commit description: " msg
+        git commit -m "$msg"
         puts-cmd git push origin $branch
     else
         echo 'else'
@@ -59,5 +57,6 @@ branch=`git rev-parse --abbrev-ref HEAD`
 msg=`auto commit to branch:`
 
 puts-cmd git add -A
-puts-cmd git commit -m "$msg$branch"
+read -p "Commit description: " msg
+git commit -m "$msg"
 puts-cmd git push origin $branch
