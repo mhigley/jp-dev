@@ -27,7 +27,7 @@ puts-warn() {
 
 # Commands.
 puts-cmd() {
-    echo `     $ $@`
+    echo "     $ $@"
     $@ | indent
 }
 
@@ -44,7 +44,9 @@ do
 
         puts-msg 'From branch:' $branch
         puts-cmd git add .
-        puts-cmd git commit -m 'stuff and things'
+        read -p "Commit description: " desc
+        git commit -m "$desc"
+        #puts-cmd git commit -m 'stuff and things'
         puts-cmd git push origin $branch
     else
         echo 'else'
