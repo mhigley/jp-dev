@@ -27,7 +27,7 @@ puts-warn() {
 
 # Commands.
 puts-cmd() {
-    echo "     $ $@"
+    echo `     $ $@`
     $@ | indent
 }
 
