@@ -53,6 +53,9 @@ do
     cd ..
 done
 
+branch=`git rev-parse --abbrev-ref HEAD`
+msg=`auto commit to branch:`
+
 puts-cmd git add -A
 puts-cmd git commit -m $msg$branch
 puts-cmd git push origin $branch
